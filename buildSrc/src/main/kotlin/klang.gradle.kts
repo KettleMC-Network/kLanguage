@@ -1,5 +1,6 @@
 plugins {
     id("java-library")
+    id("maven-publish")
 }
 
 
@@ -56,4 +57,44 @@ tasks.jar {
         configurations.getByName("internal").map { if (it.isDirectory) it else zipTree(it) }
     })
     archiveFileName.set("${projectMainName}-${project.name}-${project.version}.jar")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components["java"])
+            pom {
+                name.set("kLanguage")
+                description.set("Simple api for allowing players to choose their language")
+                url.set("https://github.com/KettleMC-Network/kLanguage")
+                licenses {
+                    license {
+                        name.set("GNU Lesser General Public License v2.1")
+                        url.set("https://opensource.org/license/lgpl-2-1/")
+                    }
+                }
+                developers {
+                    developer {
+                        name.set("LeStegii")
+                        url.set("https://github.com/LeStegii")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/KettleMC-Network/kLanguage.git")
+                    developerConnection.set("scm:git:ssh://github.com:KettleMC-Network/kLanguage.git")
+                    url.set("https://github.com/KettleMC-Network/kLanguage")
+                }
+            }
+            artifactId = "klanguage-${project.name}"
+        }
+        repositories {
+            maven {
+                setUrl("https://repo.kettlemc.net/repository/maven-releases/")
+                credentials {
+                    username = System.getenv("repouser")
+                    password = System.getenv("repopassword")
+                }
+            }
+        }
+    }
 }
