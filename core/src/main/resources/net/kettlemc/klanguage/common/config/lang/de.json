@@ -1,0 +1,14 @@
+{
+  "messages": {
+    "common": {
+      "prefix": "<red>Language</red> <dark_gray>»</dark_gray> "
+    },
+    "language": {
+      "changed": "<gray>Du hast die Sprache <red><language></red> ausgewählt.",
+      "invalid": "<gray>Diese Sprache wurde nicht gefunden (<red><languages></red>).</gray>"
+    },
+    "join": {
+      "selected": "<gray>Deine Sprache ist momentan auf <red><language></red> eingestellt. Du kannst sie mit <red>/lang</red> einstellen."
+    }
+  }
+}

@@ -1,2 +1,6 @@
 // Project name
-rootProject.name = pluginName
+rootProject.name = "kLanguage"
+
+include "core"
+include "bukkit"
+include "velocity"

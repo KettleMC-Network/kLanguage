@@ -1,0 +1,14 @@
+{
+  "messages": {
+    "common": {
+      "prefix": "<red>Language</red> <dark_gray>»</dark_gray> "
+    },
+    "language": {
+      "changed": "<gray>Your language has been set to <red><language></red>.",
+      "invalid": "<gray>This language doesn't exist (<red><languages></red>).</gray>"
+    },
+    "join": {
+      "selected": "<gray>Your language is set to <red><language></red>. Use <red>/lang</red> to change it."
+    }
+  }
+}

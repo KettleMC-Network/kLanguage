@@ -1,0 +1,37 @@
+apply plugin: "klang"
+
+repositories {
+    maven {
+        name = "spigotmc"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    maven {
+        name = "sonatype-bungeecord"
+        url = "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    internal project(path: ':core')
+    implementation "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
+}
+
+processResources {
+    outputs.upToDateWhen { false }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from sourceSets.main.resources.srcDirs
+    include "**/plugin.yml"
+    expand(
+            "name": pluginName,
+            "version": pluginVersion,
+            "author": pluginAuthor,
+            "description": pluginDescription,
+            "website": pluginWebsite,
+            "apiversion": pluginApiVersion,
+            "main": pluginMain
+    )
+}
+
+jar {
+    dependsOn(':core:jar')
+}
