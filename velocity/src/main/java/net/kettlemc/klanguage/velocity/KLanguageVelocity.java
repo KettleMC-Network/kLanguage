@@ -121,6 +121,7 @@ public final class KLanguageVelocity implements SimpleCommand {
     @Subscribe
     public void onAsyncDisconnect(DisconnectEvent event) {
         if (!this.dataHandler.initialized()) return;
+        if (languageAPI.getEntity(event.getPlayer()) == null) return;
         this.dataHandler.save(languageAPI.getEntity(event.getPlayer()));
         LanguageAPI.removeEntity(event.getPlayer().getUniqueId());
     }

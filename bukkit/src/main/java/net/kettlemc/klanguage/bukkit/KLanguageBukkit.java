@@ -101,6 +101,7 @@ public final class KLanguageBukkit extends JavaPlugin implements CommandExecutor
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         this.dataHandler.save(languageAPI.getEntity(event.getPlayer()));
+        if (languageAPI.getEntity(event.getPlayer()) == null) return;
         LanguageAPI.removeEntity(event.getPlayer().getUniqueId());
     }
 }

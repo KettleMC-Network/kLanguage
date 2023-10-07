@@ -23,7 +23,6 @@ public class HibernateDataHandler implements DataHandler {
             throw new IllegalStateException("HibernateDataHandler not initialized!");
         }
 
-
         CompletableFuture<LanguageEntity> future = new CompletableFuture<>();
         this.dataThreadHandler.queue(() -> {
             Session session = this.sessionFactory.openSession();
