@@ -18,9 +18,6 @@ repositories {
     maven {
         url = uri("https://repo.varoplugin.de/repository/maven-public/")
     }
-    maven {
-        url = uri("https://s01.oss.sonatype.org/content/repositories/iogithubalmighty-satan-1010")
-    }
 }
 
 dependencies {

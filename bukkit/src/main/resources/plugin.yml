@@ -5,5 +5,5 @@ author: ${author}
 description: ${description}
 api-version: ${apiversion}
 website: ${website}
-depends:
+depend:
   - "kLoader"
